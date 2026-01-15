@@ -1,0 +1,16 @@
+body{
+    box-sizing: border-box;
+    background-color: peachpuff;
+}
+:root{
+
+}
+button{
+    width: fit-content
+}
+form{
+    width: fit-content;
+}
+fieldset{
+    padding: 1rem;
+}

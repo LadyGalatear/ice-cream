@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="StyleSheet" href="styles/styles.css">
+    <link rel="icon" href="images/ice-cream-cone.jpg">
+    <title>Ice Cream Order Form</title>
+</head>
+<body>
+    <form id="ice-cream-form" action="#" method="get">
+    <h1>Ice Cream Order Form</h1>
+
+    <fieldset>
+        <legend>Personal information</legend>
+        <label for="name">Name: </label><br>
+        <input type="text" name="name" id="name"></input><br>
+        <label for="email">Email: </label><br>
+        <input type="email" name="email" id="email"></input>
+    </fieldset>
+
+    <fieldset>
+        <legend>Order Details</legend>
+        <label for = "flavor">Choose your flavor:</label>
+        <select id = "flavor" name = "flavor">
+            <option value = "vanilla">Vanilla</option>
+            <option value = "chocolate">Chocolate</option>
+            <option value = "strawberry">Strawberry</option>
+            <option value = "spumoni">Spumoni</option>
+        </select>
+        
+        <!-- Cones -->
+        <label for = "cone">Choose your cone:</label><br>
+        <label for = "waffle">
+            <input type = "radio" id = "waffle" value = "waffle" name = "cone">Waffle Cone
+        </label>
+        <label for = "sugar">
+            <input type = "radio" id = "sugar" value = "sugar" name = "cone">Sugar Cone
+        </label>
+        <label for = "cup">
+            <input type = "radio" id = "cup" value = "cup" name = "cone">Cup
+        </label>
+        <Label for="toppings">Toppings</Label><br>
+        <Label for="sprinkles">
+            <input type="checkbox" name="toppings[]" id="sprinkles" value = "sprinkles">Sprinkles
+        </label>
+        <Label for="nuts">
+            <input type="checkbox" name="toppings[]" id="nuts" value = "nuts">Nuts
+        </label>
+        <Label for="cherry">
+            <input type="checkbox" name="toppings[]" id="cherry" value = "cherry">Cherry
+        </label>
+        <Label for="whipped-cream">
+            <input type="checkbox" name="toppings[]" id="whipped-cream" value = "whipped-cream">Whipped Cream
+        </label>
+        <br>
+        <br>
+
+        <label for="comments">Additional comments:</label>
+        <textarea id="comments" name="comments" rows="5"></textarea>
+
+    </fieldset>
+
+    <button type="submit" id="order-button">Submit Order</button>
+
+    </form>
+
+
+</body>
+</html>
