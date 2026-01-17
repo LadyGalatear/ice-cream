@@ -1,20 +1,39 @@
 body {
+    font-family: system-ui, 'Segoe UI', sans-serif;
     box-sizing: border-box;
     background-color: peachpuff;
-}
-
-:root {
-    
-}
-
-button {
-    width: fit-content
+    margin: 0;
+    padding: 2rem;
 }
 
 form {
     width: fit-content;
 }
 
+h1 {
+    text-align: center;
+}
+
 fieldset {
     padding: 1rem;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 0.5rem;
+}
+
+label {
+    display: block;
+    margin-top: 0.75rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    margin-top: 0.25rem;
+    padding: 0.4rem;
+}
+
+button {
+    width: fit-content;
 }
