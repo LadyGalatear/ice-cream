@@ -7,6 +7,7 @@
     <link rel = "icon" href = "images/ice-cream-cone.jpg">
     <title>Ice Cream Order Form</title>
 </head>
+
 <body>
     <form id = "ice-cream-form" action = "#" method = "get">
     <h1>Ice Cream Order Form</h1>
@@ -14,9 +15,9 @@
     <fieldset>
         <legend>Personal information</legend>
         <label for = "name">Name:</label>
-        <input type = "text" name = "name" id = "name"></input>
+        <input type = "text" name = "name" id = "name">
         <label for = "email">Email:</label>
-        <input type = "email" name = "email" id = "email"></input>
+        <input type = "email" name = "email" id = "email">
     </fieldset>
 
     <fieldset>
@@ -29,7 +30,7 @@
             <option value = "spumoni">Spumoni</option>
         </select>
         
-        <label for = "cone">Choose your cone:</label>
+        <p class = "cone">Choose your cone:</p>
         <label for = "waffle">
             <input type = "radio" id = "waffle" value = "waffle" name = "cone">Waffle Cone
         </label>
@@ -40,7 +41,7 @@
             <input type = "radio" id = "cup" value = "cup" name = "cone">Cup
         </label>
 
-        <label for = "toppings">Toppings</label>
+        <p class = "toppings">Toppings</p>
         <label for = "sprinkles">
             <input type = "checkbox" name = "toppings[]" id = "sprinkles" value = "sprinkles">Sprinkles
         </label>
