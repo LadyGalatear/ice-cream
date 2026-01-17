@@ -1,16 +1,20 @@
-body{
+body {
     box-sizing: border-box;
     background-color: peachpuff;
 }
-:root{
 
+:root {
+    
 }
-button{
+
+button {
     width: fit-content
 }
-form{
+
+form {
     width: fit-content;
 }
-fieldset{
+
+fieldset {
     padding: 1rem;
 }
