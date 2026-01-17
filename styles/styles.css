@@ -1,13 +1,15 @@
 body {
     font-family: system-ui, 'Segoe UI', sans-serif;
-    box-sizing: border-box;
     background-color: peachpuff;
     margin: 0;
     padding: 2rem;
 }
 
 form {
-    width: fit-content;
+    background-color: white;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 8px;
 }
 
 h1 {
@@ -15,23 +17,42 @@ h1 {
 }
 
 fieldset {
+    border-radius: 6px;
     padding: 1rem;
+    margin-bottom: 1rem;
 }
 
 legend {
     font-weight: bold;
+    text-align: center;
     padding: 0 0.5rem;
 }
 
 label {
     display: block;
-    margin-top: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+label.option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-right: 1rem;
+}
+
+p {
+    margin: 0.5rem 0 0.25rem;
 }
 
 input, select, textarea {
-    width: 100%;
+    width: 98%;
     margin-top: 0.25rem;
     padding: 0.4rem;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    width: auto;
+    margin-top: 0;
 }
 
 button {
