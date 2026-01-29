@@ -58,3 +58,8 @@ input[type="radio"], input[type="checkbox"] {
 button {
     width: fit-content;
 }
+
+.err {
+    color: darkred;
+    display: none;
+}

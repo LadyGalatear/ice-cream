@@ -5,6 +5,7 @@
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     <link rel = "StyleSheet" href = "styles/styles.css">
     <link rel = "icon" href = "images/ice-cream-cone.jpg">
+    <script src = "js/ice-cream.js" defer></script>
     <title>Ice Cream Order Form</title>
 </head>
 
@@ -14,16 +15,29 @@
 
     <fieldset>
         <legend>Personal information</legend>
-        <label for = "name">Name:</label>
+        <label for = "name">Name:
+            <span class = "err" id = "err-name">
+                Name is required.
+            </span>
+        </label>
         <input type = "text" name = "name" id = "name">
-        <label for = "email">Email:</label>
+        <label for = "email">Email:
+            <span class = "err" id = "err-email">
+                Email address is required.
+            </span>
+        </label>
         <input type = "email" name = "email" id = "email">
     </fieldset>
 
     <fieldset>
         <legend>Order Details</legend>
-        <label for = "flavor">Choose your flavor:</label>
+        <label for = "flavor">Choose your flavor:
+            <span class = "err" id = "err-flavor">
+                Please select an ice cream flavor.
+            </span>
+        </label>
         <select id = "flavor" name = "flavor">
+            <option value = "none">--- Select a flavor ---</option>
             <option value = "vanilla">Vanilla</option>
             <option value = "chocolate">Chocolate</option>
             <option value = "strawberry">Strawberry</option>
@@ -31,6 +45,9 @@
         </select>
         
         <p class = "cone">Choose your cone:</p>
+        <span class = "err" id = "err-cone">
+            Please select a cone.
+        </span>
         <label for = "waffle" class = "option">
             <input type = "radio" id = "waffle" value = "waffle" name = "cone">Waffle Cone
         </label>

@@ -14,7 +14,7 @@ app.use(express.static('public'));
 // req: contains information about the incoming request
 // res: allows us to send back a response to the client
 app.get('/', (req, res) => {
-    res.send('Welcome to My Ice Cream Shop!')
+    res.sendFile(`${import.meta.dirname}/views/home.html`);
 });
 
 // Start server and listen on the specified port
