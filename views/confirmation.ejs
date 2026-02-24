@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comfirmation</title>
+</head>
+<body>
+    <h1>Thank you for your Order!</h1>
+    <h2>Your ice cream order has been confirmed</h2>
+    <p>Name: <%= order.name %> </p>
+    <p>Email: <%= order.email %></p>
+    <p>Email: <%= order.cone %></p>
+    <p>Toppings: 
+        <%= Array.isArray(order.toppings) ?
+           order.toppings.join(', ') :
+           "No toppings" %>
+    </p>
+    <p>Comment: <%= order.comments %></p>
+    <p>Date/Time: <%= order.timestamp.toLocaleString() %></p>
+
+     <a href="/">Place an Order</a>
+
+</body>
+</html>
