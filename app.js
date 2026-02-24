@@ -22,6 +22,22 @@ app.get('/', (req, res) => {
     res.render(`home`);
 });
 
+app.post('/order-confirm', (req, res) => {
+    const order = {
+        name: req.body.name,
+        email: req.body.email,
+        flavor: req.body.flavor,
+        cone: req.body.cone,
+        toppings: req.body.toppings ? req.body.toppings : "none",
+        comments: req.body.comments,
+        timestamp: new Date()
+    };
+
+    orders.push(order);
+
+    res.render(`confirmation`, { order });
+});
+
 // Start server and listen on the specified port
 app.listen(PORT, () => {
     console.log(`Server is running at 
