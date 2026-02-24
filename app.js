@@ -38,6 +38,10 @@ app.post('/order-confirm', (req, res) => {
     res.render(`confirmation`, { order });
 });
 
+app.get('/admin', (req, res) => {
+    res.render('admin', { orders });
+})
+
 // Start server and listen on the specified port
 app.listen(PORT, () => {
     console.log(`Server is running at 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>It's a secret to everybody.</title>
+    <script src = "//code.jquery.com/jquery-3.7.1.js"></script>
+    <script src = "//cdn.datatables.net/2.3.7/js/dataTables.js"></script>
+    <link rel = "stylesheet" href = "//cdn.datatables.net/2.3.7/css/dataTables.dataTables.css" />
+</head>
+<body>
+    <h1>Order Summary</h1>
+    <table id = "order-table" class = "display">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Flavor</th>
+                <th>Cone</th>
+                <th>Toppings</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% orders.forEach(order => { %>
+                <tr>
+                    <td><%= order.timestamp.toLocaleString() %></td>
+                    <td><%= order.name %></td>
+                    <td><%= order.email %></td>
+                    <td><%= order.flavor %></td>
+                    <td><%= order.cone %></td>
+                    <td><%= Array.isArray(order.toppings) ?
+                        order.toppings.join(', ') :
+                        "None" %></td>
+                    <td><%= order.comments %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <script defer>
+        let table = new DataTable('#order-table');
+    </script>
+</body>
+</html>
