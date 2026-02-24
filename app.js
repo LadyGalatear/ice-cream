@@ -10,6 +10,8 @@ const PORT = 3000;
 // Enable static file serving
 app.use(express.static('public'));
 
+app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: true }));
 // Define a default "route" ('/')
 // req: contains information about the incoming request
 // res: allows us to send back a response to the client
