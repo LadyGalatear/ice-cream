@@ -12,11 +12,14 @@ app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
+
+const orders = [];
+
 // Define a default "route" ('/')
 // req: contains information about the incoming request
 // res: allows us to send back a response to the client
 app.get('/', (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/home.html`);
+    res.render(`home`);
 });
 
 // Start server and listen on the specified port
