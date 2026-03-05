@@ -1,8 +1,32 @@
 // Import the express module
 import express from 'express';
 
+import mysql2 from 'mysql2';
+
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 // Create an express application
 const app = express();
+
+const pool = mysql2.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT
+}).promise();
+
+app.get('/db-test', async (req, res) => {
+    try {
+        const orders = await pool.query('SELECT * FROM orders');
+        res.send(orders[0]);
+    } catch (err) {
+       console.error('Database error:', err);
+       res.status(500).send('Database error: ' + err.message);
+    }
+});
 
 // Define a port number where server will listen
 const PORT = 3013;
