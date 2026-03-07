@@ -46,25 +46,55 @@ app.get('/', (req, res) => {
     res.render(`home`);
 });
 
-app.post('/order-confirm', (req, res) => {
-    const order = {
-        name: req.body.name,
-        email: req.body.email,
-        flavor: req.body.flavor,
-        cone: req.body.cone,
-        toppings: req.body.toppings ? req.body.toppings : "none",
-        comments: req.body.comments,
-        timestamp: new Date()
-    };
+app.post('/order-confirm', async (req, res) => {
+    try {
+        // Get form data from req.body
+        const order = req.body;         
 
-    orders.push(order);
+        // Log the order data (for debugging)
+        console.log('New order submitted:', order);
 
-    res.render(`confirmation`, { order });
+        // SQL INSERT query with placeholders to prevent SQL injection
+        const sql = `INSERT INTO orders(customer, email, flavor, cone, toppings) 
+            VALUES (?, ?, ?, ?, ?);`;
+
+        // Parameters array must match the order of ? placeholders
+	    // Make sure your property names match your order names
+        const params = [
+            order.name,
+            order.email,
+		    order.flavor,
+		    order.cone,
+            Array.isArray(order.toppings) ? order.toppings.join(", ") : "none"
+        ];
+
+        // Execute the query and grab the primary key of the new row
+        const result = await pool.execute(sql, params);
+        console.log('Order saved with ID:', result[0].insertId);
+
+        // Render confirmation page with the adoption data
+        res.render('confirmation', { order });        
+
+    } catch (err) {
+        console.error('Error saving order:', err);
+        res.status(500).send('Sorry, there was an error processing your order. Please try again.');
+    }
 });
 
-app.get('/admin', (req, res) => {
-    res.render('admin', { orders });
-})
+
+app.get('/admin', async (req, res) => {
+    try {
+        // Fetch all orders from database, newest first
+        const [orders] = await pool.query('SELECT * FROM orders ORDER BY timestamp DESC');  
+
+        // Render the admin page
+        res.render('admin', { orders });        
+
+    } catch (err) {
+        console.error('Database error:', err);
+        res.status(500).send('Error loading orders: ' + err.message);
+    }
+});
 
 // Start server and listen on the specified port
 app.listen(PORT, () => {
